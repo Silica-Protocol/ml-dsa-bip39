@@ -1,0 +1,49 @@
+[package]
+name = "ml-dsa-bip39"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "BIP39 mnemonic derivation for ML-DSA (FIPS 204) post-quantum signatures"
+repository = "https://github.com/Silica-Protocol/ml-dsa-bip39"
+keywords = ["ml-dsa", "bip39", "post-quantum", "cryptography", "mnemonic"]
+categories = ["cryptography", "authentication"]
+readme = "README.md"
+
+[features]
+default = ["rustcrypto"]
+# RustCrypto ml-dsa implementation (default)
+rustcrypto = ["ml-dsa", "hybrid-array"]
+# Future: pqcrypto backend
+# pqcrypto = ["pqcrypto-dilithium", "pqcrypto-traits"]
+
+[dependencies]
+# BIP39 mnemonic handling
+bip39 = "2.1"
+
+# SHAKE256 for key derivation
+sha3 = "0.10"
+
+# Security
+zeroize = { version = "1.8", features = ["zeroize_derive"] }
+
+# Error handling
+thiserror = "2.0"
+
+# Serialization (optional)
+serde = { version = "1.0", features = ["derive"], optional = true }
+
+# ============================================================================
+# Backend: RustCrypto ml-dsa (default)
+# ============================================================================
+ml-dsa = { version = "0.1.0-rc.7", features = ["rand_core"], optional = true }
+hybrid-array = { version = "0.4", optional = true }
+
+# ============================================================================
+# Backend: pqcrypto (future alternative)
+# ============================================================================
+# pqcrypto-dilithium = { version = "0.5", optional = true }
+# pqcrypto-traits = { version = "0.3", optional = true }
+
+[dev-dependencies]
+hex = "0.4"
+rand = "0.8"
