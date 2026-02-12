@@ -13,8 +13,6 @@ readme = "README.md"
 default = ["rustcrypto"]
 # RustCrypto ml-dsa implementation (default)
 rustcrypto = ["ml-dsa", "hybrid-array"]
-# Future: pqcrypto backend
-# pqcrypto = ["pqcrypto-dilithium", "pqcrypto-traits"]
 
 [dependencies]
 # BIP39 mnemonic handling
@@ -37,12 +35,6 @@ serde = { version = "1.0", features = ["derive"], optional = true }
 # ============================================================================
 ml-dsa = { version = "0.1.0-rc.7", features = ["rand_core"], optional = true }
 hybrid-array = { version = "0.4", optional = true }
-
-# ============================================================================
-# Backend: pqcrypto (future alternative)
-# ============================================================================
-# pqcrypto-dilithium = { version = "0.5", optional = true }
-# pqcrypto-traits = { version = "0.3", optional = true }
 
 [dev-dependencies]
 hex = "0.4"

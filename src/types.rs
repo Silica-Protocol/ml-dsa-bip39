@@ -1,7 +1,7 @@
 //! Abstract types for ML-DSA keypairs and signatures
 //!
 //! These types are backend-agnostic - they don't expose any
-//! implementation-specific types from ml-dsa, pqcrypto, etc.
+//! implementation-specific types from ml-dsa or other backends.
 
 use zeroize::{Zeroize, ZeroizeOnDrop};
 
